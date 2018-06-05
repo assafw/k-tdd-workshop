@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace TargetLibrary
 {
@@ -12,7 +13,7 @@ namespace TargetLibrary
         return 0;
       }
 
-      throw new NotImplementedException();
+      return stringToCalculate.Split(',').Sum(x => int.Parse(x));
     }
   }
 }

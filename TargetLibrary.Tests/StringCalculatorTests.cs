@@ -25,5 +25,23 @@ namespace TargetLibrary.Tests
     {
       target.Calculate("").ShouldBe(0);
     }
+
+    [Fact]
+    public void WhenEmptyStringReturnZero()
+    {
+      Assert.Equal(0, target.Calculate(""));
+    }
+
+    [Fact]
+    public void WhenOnlySingleNumberReturnIt()
+    {
+      Assert.Equal(11, target.Calculate("11"));
+    }
+
+    [Fact]
+    public void WhenMultipleNumbersReturnSum()
+    {
+      Assert.Equal(3, target.Calculate("1,2"));
+    }
   }
 }
