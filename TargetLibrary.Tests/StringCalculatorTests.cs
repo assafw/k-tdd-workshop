@@ -1,21 +1,29 @@
 using System;
 using Xunit;
 using TargetLibrary;
+using Shouldly;
 
 namespace TargetLibrary.Tests
 {
   public class StringCalculatorTests
   {
+    private readonly StringCalculator target;
+
+    public StringCalculatorTests()
+    {
+      target = new StringCalculator();
+    }
+
     [Fact]
     public void MyFirstTest()
     {
-      Assert.NotNull(new StringCalculator());
+      Assert.NotNull(target);
     }
 
     [Fact]
     public void WhenEmptyStringShouldReturnZero()
     {
-      Assert.Equal(0, new StringCalculator().Calculate(""));
+      target.Calculate("").ShouldBe(0);
     }
   }
 }
