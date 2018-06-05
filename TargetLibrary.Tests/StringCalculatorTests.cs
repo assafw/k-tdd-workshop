@@ -43,5 +43,17 @@ namespace TargetLibrary.Tests
     {
       Assert.Equal(3, target.Calculate("1,2"));
     }
+
+    [Fact]
+    public void WhenHas3NumbersReturnSum()
+    {
+      Assert.Equal(6, target.Calculate("1,2,3"));
+    }
+
+    [Fact]
+    public void WhenHasAlotOfNumbersReturnSum()
+    {
+      Assert.Equal(10, target.Calculate("1,1,1,1,1,5"));
+    }
   }
 }
