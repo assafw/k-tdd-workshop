@@ -13,7 +13,25 @@ namespace TargetLibrary
         return 0;
       }
 
-      return stringToCalculate.Split(',', '\n').Sum(x => int.Parse(x));
+      if (stringToCalculate.StartsWith("//"))
+      {
+        var lines = stringToCalculate.Split('\n');
+        var delimiter = lines[0].Trim('/');
+
+        return CalculateSum(Split(lines[1], delimiter));
+      }
+
+      return CalculateSum(Split(stringToCalculate, ",", "\n"));
+    }
+
+    private IEnumerable<string> Split(string input, params string[] delimiters)
+    {
+      return input.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
+    }
+
+    private int CalculateSum(IEnumerable<string> numbers)
+    {
+      return numbers.Sum(n => int.Parse(n));
     }
   }
 }
