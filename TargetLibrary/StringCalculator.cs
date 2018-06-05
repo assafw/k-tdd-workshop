@@ -34,7 +34,7 @@ namespace TargetLibrary
       var nums = numbers.Select(n => int.Parse(n));
       if (nums.Any(n => n < 0))
       {
-        throw new InvalidOperationException();
+        throw new InvalidOperationException("Negatives not allowed: " + string.Join(",", nums.Where(n => n < 0)));
       }
 
       return numbers.Sum(n => int.Parse(n));

@@ -77,7 +77,21 @@ namespace TargetLibrary.Tests
     [Fact]
     public void WhenOneNegativeNumberExists_ShouldThrowException()
     {
+      Assert.Throws<InvalidOperationException>(() => target.Calculate("1,-1"));
+    }
+
+    [Fact]
+    public void WhenOneNegativeNumberExists_ShouldThrowExceptionAndLogMessage()
+    {
       var ex = Assert.Throws<InvalidOperationException>(() => target.Calculate("1,-1"));
+      ex.Message.ShouldBe("Negatives not allowed: -1");
+    }
+
+    [Fact]
+    public void WhenMultipleNegativeNumberExist_ShouldThrowExceptionAndLogMessage()
+    {
+      var ex = Assert.Throws<InvalidOperationException>(() => target.Calculate("1,-2,-3"));
+      ex.Message.ShouldBe("Negatives not allowed: -2,-3");
     }
   }
 }
