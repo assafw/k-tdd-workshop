@@ -67,5 +67,11 @@ namespace TargetLibrary.Tests
     {
       target.Calculate("//!\n1!2!3").ShouldBe(6);
     }
+
+    [Fact]
+    public void WhenCustomDelimiterIsDefinedAsPlus_ShouldReturnSum()
+    {
+      target.Calculate("//+\n1+1").ShouldBe(2);
+    }
   }
 }
