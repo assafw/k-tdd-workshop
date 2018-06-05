@@ -13,7 +13,7 @@ namespace TargetLibrary
         return 0;
       }
 
-      return stringToCalculate.Split(',').Sum(x => int.Parse(x));
+      return stringToCalculate.Split(',', '\n').Sum(x => int.Parse(x));
     }
   }
 }

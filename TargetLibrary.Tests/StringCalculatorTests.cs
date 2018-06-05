@@ -49,5 +49,17 @@ namespace TargetLibrary.Tests
     {
       target.Calculate("1,1,1,1,1,5").ShouldBe(10);
     }
+
+    [Fact]
+    public void WhenUsingNewLineDelimiter_ShouldReturnSum()
+    {
+      target.Calculate("1\n2").ShouldBe(3);
+    }
+
+    [Fact]
+    public void WhenUsingMixedDelimiters_ShouldReturnSum()
+    {
+      target.Calculate("1,2\n3").ShouldBe(6);
+    }
   }
 }
