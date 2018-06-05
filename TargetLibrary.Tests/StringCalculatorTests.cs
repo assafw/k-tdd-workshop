@@ -73,5 +73,11 @@ namespace TargetLibrary.Tests
     {
       target.Calculate("//+\n1+1").ShouldBe(2);
     }
+
+    [Fact]
+    public void WhenOneNegativeNumberExists_ShouldThrowException()
+    {
+      var ex = Assert.Throws<InvalidOperationException>(() => target.Calculate("1,-1"));
+    }
   }
 }

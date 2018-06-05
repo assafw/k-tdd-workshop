@@ -31,6 +31,12 @@ namespace TargetLibrary
 
     private int CalculateSum(IEnumerable<string> numbers)
     {
+      var nums = numbers.Select(n => int.Parse(n));
+      if (nums.Any(n => n < 0))
+      {
+        throw new InvalidOperationException();
+      }
+
       return numbers.Sum(n => int.Parse(n));
     }
   }
