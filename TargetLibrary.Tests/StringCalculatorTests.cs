@@ -21,39 +21,33 @@ namespace TargetLibrary.Tests
     }
 
     [Fact]
-    public void WhenEmptyStringShouldReturnZero()
+    public void WhenEmptyString_ShouldReturnZero()
     {
       target.Calculate("").ShouldBe(0);
     }
 
     [Fact]
-    public void WhenEmptyStringReturnZero()
+    public void WhenSingleNumberAsInput_ShouldReturnIt()
     {
-      Assert.Equal(0, target.Calculate(""));
+      target.Calculate("11").ShouldBe(11);
     }
 
     [Fact]
-    public void WhenOnlySingleNumberReturnIt()
+    public void WhenMultipleNumbers_ShouldReturnSum()
     {
-      Assert.Equal(11, target.Calculate("11"));
+      target.Calculate("1,2").ShouldBe(3);
     }
 
     [Fact]
-    public void WhenMultipleNumbersReturnSum()
+    public void WhenHasThreeNumbersInInput_ShouldReturnSum()
     {
-      Assert.Equal(3, target.Calculate("1,2"));
+      target.Calculate("1,2,3").ShouldBe(6);
     }
 
     [Fact]
-    public void WhenHas3NumbersReturnSum()
+    public void WhenHasMoreThanThree_ShouldReturnSum()
     {
-      Assert.Equal(6, target.Calculate("1,2,3"));
-    }
-
-    [Fact]
-    public void WhenHasAlotOfNumbersReturnSum()
-    {
-      Assert.Equal(10, target.Calculate("1,1,1,1,1,5"));
+      target.Calculate("1,1,1,1,1,5").ShouldBe(10);
     }
   }
 }
