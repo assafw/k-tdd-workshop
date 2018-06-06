@@ -106,5 +106,11 @@ namespace TargetLibrary.Tests
     {
       target.Calculate("//[___]\n1___2___3").ShouldBe(6);
     }
+
+    [Fact]
+    public void WhenMultipleCustomDelimiterWithMoreThanOneChar_ShouldCalculateSum()
+    {
+      target.Calculate("//[**][--]\n1**2--3").ShouldBe(6);
+    }
   }
 }

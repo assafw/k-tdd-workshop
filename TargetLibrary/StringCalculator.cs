@@ -16,17 +16,25 @@ namespace TargetLibrary
       if (stringToCalculate.StartsWith("//"))
       {
         var lines = stringToCalculate.Split('\n');
-        var delimiter = lines[0].Trim('/');
+        var delimiters = GetCustomDelimiters(lines[0]);
 
-        if (delimiter.StartsWith("["))
-        {
-          delimiter = delimiter.Trim('[', ']');
-        }
-
-        return CalculateSum(Split(lines[1], delimiter));
+        return CalculateSum(Split(lines[1], delimiters.ToArray()));
       }
 
       return CalculateSum(Split(stringToCalculate, ",", "\n"));
+    }
+
+    private IEnumerable<string> GetCustomDelimiters(string line)
+    {
+        var delimiters = line.Trim('/');
+
+        if (delimiters.StartsWith("["))
+        {
+          var customDelimiters = Split(delimiters.Trim('[', ']'), "][");
+          return customDelimiters;
+        }
+
+        return new[] { delimiters };
     }
 
     private IEnumerable<string> Split(string input, params string[] delimiters)
