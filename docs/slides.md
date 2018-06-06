@@ -1,6 +1,32 @@
 # TDD Workshop
 ## String calculator kata
 ---
+## What is TDD?
+**T**est **D**riven **D**evelopment
+---
+## How does it work?
+* <span style="color:red">**Red**</span> Write a test that fails
+* <span style="color:lime">**Green**</span> Write just enough code to make that test pass
+* <span style="color:lightblue">**Refactor**</span> Clean up the code
+* **Repeat** until you're done
+---
+## Why should we do it?
+It's all about **confidence**
+---
+* You implement your functional requirements
+* You have coverage
+* YAGNI (**Y**ou **A**in't **G**onna **N**eed **I**t)
+* Safer to make changes
+---
+## Tests should be
+* Small
+* Fast
+* Stable (not-flaky)
+* Test exactly one thing
+* Clearly named
+
+Recommended read: [The art of unit-testing (book)](http://artofunittesting.com/)
+---
 ## Before we start
 * Clone the repo from: https://github.com/assafw/k-tdd-workshop
 * Don’t read a head
