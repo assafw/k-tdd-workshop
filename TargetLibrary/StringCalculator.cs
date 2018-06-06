@@ -18,6 +18,11 @@ namespace TargetLibrary
         var lines = stringToCalculate.Split('\n');
         var delimiter = lines[0].Trim('/');
 
+        if (delimiter.StartsWith("["))
+        {
+          delimiter = delimiter.Trim('[', ']');
+        }
+
         return CalculateSum(Split(lines[1], delimiter));
       }
 

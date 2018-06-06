@@ -100,5 +100,11 @@ namespace TargetLibrary.Tests
       target.Calculate("1,1001").ShouldBe(1);
       target.Calculate("1,1000").ShouldBe(1001);
     }
+
+    [Fact]
+    public void WhenCustomDelimiterWithMoreThanOneChar_ShouldCalculateSum()
+    {
+      target.Calculate("//[___]\n1___2___3").ShouldBe(6);
+    }
   }
 }
