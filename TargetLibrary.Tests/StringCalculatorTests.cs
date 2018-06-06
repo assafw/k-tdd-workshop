@@ -93,5 +93,12 @@ namespace TargetLibrary.Tests
       var ex = Assert.Throws<InvalidOperationException>(() => target.Calculate("1,-2,-3"));
       ex.Message.ShouldBe("Negatives not allowed: -2,-3");
     }
+
+    [Fact]
+    public void WhenNumberOver1000InInput_ShouldIgnoreWhenCalculatingSum()
+    {
+      target.Calculate("1,1001").ShouldBe(1);
+      target.Calculate("1,1000").ShouldBe(1001);
+    }
   }
 }

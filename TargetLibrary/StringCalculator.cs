@@ -37,7 +37,7 @@ namespace TargetLibrary
         throw new InvalidOperationException("Negatives not allowed: " + string.Join(",", nums.Where(n => n < 0)));
       }
 
-      return numbers.Sum(n => int.Parse(n));
+      return nums.Where(n => n <= 1000).Sum();
     }
   }
 }
