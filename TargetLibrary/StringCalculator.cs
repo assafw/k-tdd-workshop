@@ -15,13 +15,18 @@ namespace TargetLibrary
 
       if (stringToCalculate.StartsWith("//"))
       {
-        var lines = stringToCalculate.Split('\n');
-        var delimiters = GetCustomDelimiters(lines[0]);
-
-        return CalculateSum(Split(lines[1], delimiters.ToArray()));
+        return CalculateWithCustomDelimiter(stringToCalculate);
       }
 
       return CalculateSum(Split(stringToCalculate, ",", "\n"));
+    }
+
+    private int CalculateWithCustomDelimiter(string stringToCalculate)
+    {
+      var lines = stringToCalculate.Split('\n');
+      var delimiters = GetCustomDelimiters(lines[0]);
+
+      return CalculateSum(Split(lines[1], delimiters.ToArray()));
     }
 
     private IEnumerable<string> GetCustomDelimiters(string line)
