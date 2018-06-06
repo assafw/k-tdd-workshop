@@ -29,27 +29,43 @@ Recommended read: [The art of unit-testing (book)](http://artofunittesting.com/)
 ---
 ## Before we start
 * Clone the repo from: https://github.com/assafw/k-tdd-workshop
-* Don’t read a head
+* Don’t read ahead :)
 * Implement one piece of functionality at a time
 * We only do “happy path” cases today, no need to test wrong input
 * Refactor! Refactor! Refactor!
 ---
-## Let's check everything works
-* Make sure eveything build:
-<br />if using `make`:
+## In the sample project
+* `TargetLibrary` - contains the code we're testing
+* `TargetLibrary.Tests` - contains the tests
+
+We're using:
+* dotnet core - c# language
+* xunit - unit testing framework
+* shouldly - 'should' style assertions
+
+```
+target.Calculate("1,2").ShouldBe(3);
+```
+
+you can still use `Assert.Equal` style assertions
+---
+### Let's check everything works
+using `make`:
 ```
 make build
 make test
 ```
 
-* Else use `dotnet` commands:
+using `dotnet` commands:
 ```
 dotnet restore <project>
 dotnet build <project>
 dotnet test <test project>
 ```
 ---
-## Let's write a string calculator
+# READY?
+---
+### Let's write a string calculator
 * Write a function that takes string as an input, that contains 0-2 numbers, delimited by a **','** and return their sum
 
 Input examples:
